@@ -1,0 +1,39 @@
+<! DOCTYPE html>
+
+<head>
+	<h1>Device Listing and Status </h1>
+	
+</head>
+
+<body>
+	<h1> Thermometers 
+	
+		<h2>Thermometer one temperature is: {{temp_c}} </h2>
+		
+<br>
+	
+	
+	<h1>
+		{% for pin in pins %}
+	<h2>	
+		The {{ pins[pin].name }}
+	{% if pins[pin].state == true %}
+		is currently on (<a href="/{{pin}}/off">turn off</a>)
+	{% else %}
+		is currently off (<a href="/{{pin}}/on">turn on</a>)
+	{% endif %}
+	</h2>
+	{% endfor %}
+	</h1>
+	
+
+	{% if message %}
+	<h2>{{ message }}</h2>
+
+	{% endif %} 
+	</h1>
+</body>
+
+
+
+</html>
